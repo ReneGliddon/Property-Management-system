@@ -80,3 +80,8 @@ void UpdateRental1::on_pushUpdateRentalDetails_clicked()
 
     QMessageBox::information(this, tr("Updated"),tr("Record Updated."));
 }
+
+void UpdateRental1::on_comboProperty_currentTextChanged(const QString &tenantName)
+{
+    //pass
+}

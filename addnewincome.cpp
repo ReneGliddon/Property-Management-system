@@ -3,6 +3,7 @@
 #include "overrideincome.h"
 #include "dialog.h"
 #include <QMessageBox>
+#include "overrideincome.h"
 #include <QtSql>
 #include <QDebug>
 #include <QDate>
@@ -158,7 +159,7 @@ qDebug()<<description<<" "<<propertyNickname<<" "<<payerName;
       {
         //expense code is not unique, prompt user to manually enter a unique code
           //create an object
-          OverrideIncome override = new OverrideIncome;
+          OverrideIncome override;
 
         //send and set the values from the ui
         override.setValues(description, propertyNickname, incomeAmount, incomeDate, payerName);

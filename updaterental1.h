@@ -47,6 +47,8 @@ private slots:
 
 
 
+    void on_comboProperty_currentTextChanged(const QString &arg1);
+
 private:
     Ui::UpdateRental1 *ui;
 };

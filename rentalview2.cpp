@@ -85,7 +85,7 @@ void rentalView2::populate()
     }
 
     //check that the contract has been correctly dated
-    if(begin == end || begin < end)
+    if(begin == end || begin > end)
     {
         QMessageBox::critical(this, tr("Error"), "The dates of the rental contract are incorrect. Please correct them to receive accurate information ");
     }
@@ -486,15 +486,31 @@ void rentalView2::dayNow()
 
 void rentalView2::numYears()
 {
-    years = yearEndInt - yearStartInt;
+    if(monthEndInt  > monthStartInt)
+    {
+        years = yearEndInt - yearStartInt;
+    }
+    else
+    {
+        years = yearEndInt - yearStartInt - 1;
+    }
+
     qDebug()<<"The contract has been "<<years<<" years long to date";
 }
 
 void rentalView2::numMonths()
 {
+    if(monthStartInt > monthEndInt)
+    {
+        months = 12 - monthStartInt;
+        months = months + monthEndInt;
+    }
+    else
+    {
+        months = monthEndInt - monthStartInt;
+    }
 
 
-    months = monthEndInt - monthStartInt;
     qDebug()<<"It  has been  "<<months<<" months of the contract";
 
     if(dayStartInt > dayEndInt)
